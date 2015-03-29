@@ -1,0 +1,147 @@
+{
+	"scopeName": "source.abl",
+	"name": "OpenEdge ABL (Advanced Business Language)",
+	"fileTypes": [
+		"p",
+		"i",
+		"cls"
+	],
+	"patterns": [{
+		"match": "(?i)(\\b(define|def|method|constructor|destructor)\\s+((input|buffer|override|output|dataset|input-output|temp-table|protected|abstract|var|variable|param|parameter|public|private)\\s+)+\\b)",
+		"name": "storage.type.function.abl"
+	}, {
+		"captures": {
+            "1": {
+                "name": "storage.type.function.abl"
+            },
+            "2": {
+                "name": "variable.name.abl"
+            }
+        },
+		"match": "(?i)\\b(procedure)\\s+([a-zA-Z_$]\\w*)\\b"
+	}, {
+        "captures": {
+            "1": {
+                "name": "storage.type.function.abl"
+            },
+            "2": {
+                "name": "variable.name.abl"
+            },
+            "3": {
+				"name": "storage.type.function.abl"
+            },
+            "4": {
+                "name": "storage.type.source.abl"
+            }
+        },
+        "match": "(?i)\\b(function)\\s+([a-zA-Z_$]\\w*)\\s+(returns|return) (void|event|table|temp-table|blob|character|char|clob|com-handle|date|datetime|datetime-tz|decimal|dec|handle|int64|integer|int|logical|log|longchar|memptr|raw|recid|rowid|widget-handle)(\\s*)(\\(\\s*|:)",
+        "name": "meta.function.abl"
+    }, {
+		"match": "(?i)\\b(end\\s+(function|procedure|method|class|constructor|destructor))\\b",
+		"name": "storage.type.function.abl"
+	}, {
+		"name": "constant.numeric.abl",
+		"match": "(?<!\\w)((0(x|X)[0-9a-fA-F]+)|(\\?)|([0-9]+(\\.[0-9]+)?))"
+	}, {
+		"name": "storage.type.abl",
+		"match": "(?i)(\\s+|\\b)(void|event|table|temp-table|blob|character|char|clob|com-handle|date|datetime|datetime-tz|decimal|dec|handle|int64|integer|int|logical|log|longchar|memptr|raw|recid|rowid|widget-handle)(?!\\s*\\()\\b"
+	}, {
+		"captures": {
+			"2": {
+				"name": "keyword.other.abl"
+			},
+			"4": {
+				"name": "storage.type.abl"
+			},
+			"3": {
+				"name": "entity.name.type.instance.abl"
+			}
+		},
+		"match": "(?i)(\\s+|\\b)(as)\\s+((table|temp-table|buffer|char|character|handle|dataset-handle|dataset|logical|memptr|datetime|date|longchar|log|rowid|integer|void|event|int|int64|decimal|dec|stream|frame|blob|cblob|class)|([a-zA-Z_$.]+))(?!\\s*\\()\\b"
+	}, {
+		"match": "(?i)(\\b( = | \\+ | - | / | < | > |,))",
+		"name": "keyword.operator.source.abl"
+	}, {
+		"captures": {
+			"1": {
+				"name": "keyword.other.abl"
+			},
+			"2": {
+				"name": "entity.name.type.instance.abl"
+			}
+		},
+		"match": "(?i)\\b(new)\\s+([a-zA-Z0-9_\\.\\-]+)\\b"
+	}, {
+		"match": "(?i)\\b(\\?|now|today|etime|generate-uuid|binary|true|false|yes|no(?!-))\\b",
+		"name": "constant.language.source.abl"
+	}, {
+		"begin": "/\\*",
+		"name": "comment.block.source.abl",
+		"end": "\\*/(?![^/]*?\\*/)"
+	}, {
+		"match": "\"\"[a-zA-Z0-9_\\.\\-]+\"\"",
+		"name": "string.double.source.abl"
+	}, {
+		"begin": "(\"(?!\"[a-zA-Z]+)|\"\"[a-zA-Z]+)",
+		"patterns": [{
+			"match": "(~(x\\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]|37[0-7]?|[4-7][0-7]?|.)|\"\")",
+			"name": "constant.character.escape.abl"
+		}],
+		"name": "string.double.complex.abl",
+		"end": "\"(?!\")"
+	}, {
+		"match": "''[a-zA-Z0-9_\\.\\-]+''",
+		"name": "string.single.source.abl"
+	}, {
+		"begin": "('(?!'[a-zA-Z]+)|''[a-zA-Z]+)",
+		"patterns": [{
+			"match": "(~(x\\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]|37[0-7]?|[4-7][0-7]?|.)|'')",
+			"name": "constant.character.escape.abl"
+		}],
+		"name": "string.single.complex.abl",
+		"end": "'(?!')"
+	}, {
+		"captures": {
+			"2": {
+				"name": "variable.name.abl"
+			}
+		},
+		"match": "(?i:^\\s*(\\{)([a-z0-9_&\\./-]+)(\\}))"
+	}, {
+		"captures": {
+			"1": {
+				"name": "support.function.abl"
+			}
+		},
+		"match": "(?i):([a-z0-9_-]+)"
+	}, {
+		"captures": {
+			"1": {
+				"name": "storage.type.function.abl"
+			},
+			"2": {
+				"name": "variable.name.abl"
+			}
+		},
+		"match": "(?i)\\b(using|class)\\s+([a-zA-Z_$.]+)\\b"
+	}, {
+		"captures": {
+			"1": {
+				"name": "keyword.other.abl"
+			},
+			"2": {
+				"name": "variable.name.abl"
+			}
+		},
+		"match": "(?i)\\b(run) ([^\\(]?*)"
+	}, {
+		"match": "(?i)(\\&)(s+)\\b",
+		"name": "keyword.operator.abl"
+	}, {
+		"match": "(?i)(?<![a-zA-Z0-9_-])(abstract|alert-box|all|anywhere|assign|at|binary|buffer-create|buffer-value|buttons|close|column|convert|create|current-window|data-relation|relation-fields|def|define|delete|display|do|else|empty|enable|end|endif|error-status|field|find|first|last|avail|available|where|while|for|each|file-info|file-info|file-name|file-type|focus|for|foreign-key-hidden|from|full-pathname|generate-uuid|global-define|defined|handle|if|implements|index|info|information|inherits|input|input|input-output|labels|leave|message|nested|next|next-value|no-apply|node-value|num-fields|object|of|ok|on|os-copy|os-delete|os-error|param|parameter|pathname|private|protected|public|query|radio-buttons|radio-set|radio-set|repeat|return-value|return|row|serialize-name|set-size|set|error|case-sensitive|signature|soap-header-entryref|soap-header|source|stream|super|target|get-value|then|this-object|title|to|type|unique|var|variable|view-as|wait-for|window-close|with|x-document|x-noderef|import|unformatted|seek|put|extent|append|ascending|no-echo|asc|descending|desc|init|no-undo|undo|or|and|not|is|method|destructor|constructor|no-box|no-labels|no-lock|exclusive-lock|no-error|format|output-http-header|output-content-type|output|num-entries|guid|colon|label|initial|side-labels|width|primary|use-index|override|catch|case|printer|get-byte|value|abs|string|like|procedure|function|class|returns|valid-object|valid-handle|sax-writer|sax-reader|by-reference|web-context|namespace-uri|namespace-prefix|xml-node-name|create)(?!-)\\b",
+		"name": "keyword.other.abl"
+	}, {
+		"match": "(?i)(\\b[a-z][a-z0-9_-]*?\\b\\s*)(?=\\s*\\(.*?\\))",
+		"name": "keyword.other.abl"
+	}]
+}
