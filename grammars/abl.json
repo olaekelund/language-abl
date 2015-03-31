@@ -7,12 +7,12 @@
 		"cls"
 	],
 	"patterns": [{
-		"match": "(?i)(\\b(define|def|method|constructor|destructor)\\s+((input|buffer|override|output|dataset|input-output|temp-table|dataset|buffer|protected|abstract|stream|var|variable|param|parameter|public|private)\\s+)+\\b)",
-		"name": "storage.type.function.abl"
+		"match": "(?i)(\\b(define|def|method|constructor|destructor)\\s+((input|buffer|override|output|dataset|return|input-output|temp-table|dataset|buffer|protected|abstract|stream|var|variable|param|parameter|public|private)\\s+)+\\b)",
+		"name": "storage.type.abl"
 	}, {
 		"captures": {
 			"1": {
-				"name": "storage.type.function.abl"
+				"name": "storage.type.abl"
 			},
 			"2": {
 				"name": "variable.name.abl"
@@ -22,13 +22,13 @@
 	}, {
 		"captures": {
 			"1": {
-				"name": "storage.type.function.abl"
+				"name": "storage.type.abl"
 			},
 			"2": {
 				"name": "variable.name.abl"
 			},
 			"3": {
-				"name": "storage.type.function.abl"
+				"name": "storage.type.abl"
 			},
 			"4": {
 				"name": "storage.type.source.abl"
@@ -38,13 +38,13 @@
 		"name": "meta.function.abl"
 	}, {
 		"match": "(?i)\\b(end\\s+(function|procedure|method|class|constructor|destructor))\\b",
-		"name": "storage.type.function.abl"
+		"name": "storage.type.abl"
 	}, {
 		"name": "constant.numeric.abl",
 		"match": "(?<!\\w)((0(x|X)[0-9a-fA-F]+)|(\\?)|([0-9]+(\\.[0-9]+)?))"
 	}, {
 		"name": "storage.type.abl",
-		"match": "(?i)(\\s+|\\b)(void|temp-table|table|dataset|event|blob|character|char|clob|com-handle|date|datetime|datetime-tz|decimal|dec|handle|int64|integer|int|logical|log|longchar|file|memptr|raw|recid|rowid|widget-handle)((\\s*\\()|(\\s+))\\b"
+		"match": "(?i)(\\s+|\\b)(void|temp-table|socket|table|dataset|event|blob|character|char|clob|com-handle|dataset-handle|handle|date|datetime|datetime-tz|decimal|dec|handle|int64|integer|int|logical|log|longchar|file|memptr|raw|recid|rowid|widget-handle)((\\s*\\()|(\\s+))\\b"
 	}, {
 		"captures": {
 			"2": {
@@ -57,9 +57,9 @@
 				"name": "entity.name.type.instance.abl"
 			}
 		},
-		"match": "(?i)(\\s+|\\b)(as)\\s+((table|temp-table|buffer|buffer|char|character|handle|dataset-handle|dataset|logical|file|memptr|datetime|date|longchar|log|rowid|integer|void|event|int|int64|decimal|dec|stream|frame|blob|cblob|class)|([a-zA-Z_$.]+))(?!\\s*\\()\\b"
+		"match": "(?i)(\\s+|\\b)(as)\\s+((table|temp-table|buffer|char|character|com-handle|dataset-handle|handle|dataset|logical|file|memptr|datetime|date|longchar|log|rowid|integer|void|event|int|int64|decimal|dec|stream|frame|blob|cblob|class)|([a-zA-Z_$.]+))(?!\\s*\\()\\b"
 	}, {
-		"match": "(?i)(\\b( = | \\+ | - | / | < | > |,))",
+		"match": "(?i)\\s+(\\-|\\+|\\*|\\/|and|begins|eq|\\=|ge|\\>\\=|gt|\\>|le|\\<\\=|lt|<|matches|modulo|mod|ne|\\<\\>|not|or)\\s+",
 		"name": "keyword.operator.source.abl"
 	}, {
 		"captures": {
@@ -75,7 +75,7 @@
 		"match": "(?i)\\b(\\?|true|false|yes|no(?!-))\\b",
 		"name": "constant.language.source.abl"
 	}, {
-		"match": "(?i)\\b(sax-write-idle|sax-write-begin|sax-write-tag|sax-write-element|sax-write-content|sax-write-complete|sax-write-error)\\b",
+		"match": "(?i)\\b(sax-write-idle|sax-write-begin|sax-write-tag|sax-write-element|sax-write-content|sax-write-complete|sax-write-error|big-endian|little-endian)\\b",
 		"name": "constant.language.source.abl"
 	}, {
 		"match": "(?i)(?<![a-zA-Z0-9_-])(this-object|time|now|today|etime|mtime)(?!-)\\b",
@@ -112,7 +112,7 @@
 				"name": "variable.name.abl"
 			}
 		},
-		"match": "(?i:^\\s*(\\{)([a-z0-9_&./-]+)(\\}))"
+		"match": "(?i)(\\{)([a-z0-9_&./-]+)(\\})"
 	}, {
 		"captures": {
 			"1": {
@@ -123,7 +123,7 @@
 	}, {
 		"captures": {
 			"1": {
-				"name": "storage.type.function.abl"
+				"name": "storage.type.abl"
 			},
 			"2": {
 				"name": "variable.name.abl"
@@ -139,12 +139,12 @@
 				"name": "variable.name.abl"
 			}
 		},
-		"match": "(?i)\\b(run)\\s+([a-z0-9._/-]+)"
+		"match": "(?i)\\b(run)\\s+([a-z0-9._/-]+\\.p)"
 	}, {
 		"match": "(?i)(\\&)(s+)\\b",
 		"name": "keyword.operator.abl"
 	}, {
-		"match": "(?i)(?<![a-zA-Z0-9_-])(table|temp-table|buffer|dataset|abstract|alert-box|all|anywhere|assign|at|binary|buffer-copy|buffer-create|buffer-value|buttons|close|column|convert|create|current-window|data-relation|relation-fields|def|define|delete|display|do|else|empty|enable|end|endif|error-status|field|find|first|last|avail|available|where|while|for|each|file-info|file-name|file-type|focus|for|foreign-key-hidden|from|full-pathname|generate-uuid|global-define|defined|handle|if|implements|in|index|info|information|inherits|input|input|input-output|labels|leave|skip|message|nested|next|next-value|no-apply|node-value|num-fields|object|of|ok|on|os-copy|os-delete|os-error|stop|stop-after|param|parameter|pathname|private|protected|public|query|radio-buttons|radio-set|radio-set|repeat|return-value|return|row|serialize-name|set-size|set|error|case-sensitive|signature|soap-header-entryref|soap-header|source|codepage|stream|super|target|get-value|then|title|to|type|unique|var|variable|view-as|wait-for|window-close|with|x-document|x-noderef|import|unformatted|seek|put|extent|append|ascending|no-echo|asc|descending|server|desc|init|no-undo|undo|or|and|not|is|method|destructor|constructor|no-box|no-labels|no-lock|exclusive-lock|no-error|format|output-http-header|output-content-type|output|num-entries|guid|colon|label|initial|side-labels|width|primary|use-index|override|catch|case|printer|get-byte|value|abs|string|like|procedure|function|class|returns|valid-object|valid-handle|sax-writer|sax-reader|by-reference|web-context|mod|namespace-uri|namespace-prefix|break|copy-lob|by|xml-node-name|xml-node-type|create|current|transaction|forward|case|when|otherwise)(?!-)\\b",
+		"match": "(?i)(?<![a-zA-Z0-9_-])(table|temp-table|buffer|dataset|abstract|alert-box|all|anywhere|assign|at|binary|buffer-copy|buffer-create|buffer-value|buttons|close|column|convert|create|current-window|data-relation|relation-fields|def|define|delete|display|do|else|empty|enable|end|endif|error-status|field|find|first|last|avail|available|where|while|for|each|file-info|file-name|file-type|focus|for|foreign-key-hidden|from|full-pathname|generate-uuid|global-define|defined|handle|if|implements|in|index|info|information|inherits|input|input|input-output|labels|leave|skip|message|nested|next|next-value|no-apply|node-value|num-fields|object|of|ok|on|os-copy|os-delete|os-error|stop|stop-after|param|parameter|pathname|private|protected|public|query|radio-buttons|radio-set|radio-set|repeat|return-value|return|row|serialize-name|set-size|set|error|case-sensitive|signature|soap-header-entryref|soap-header|source|codepage|stream|super|target|get-value|then|title|to|type|unique|var|variable|view-as|wait-for|window-close|with|x-document|x-noderef|import|unformatted|seek|put|extent|append|ascending|no-echo|asc|descending|server|desc|init|no-undo|undo|is|method|destructor|constructor|no-box|no-labels|no-lock|exclusive-lock|no-error|format|output-http-header|output-content-type|output|num-entries|guid|colon|no-convert|label|initial|side-labels|width|primary|use-index|override|catch|case|printer|get-byte|value|abs|string|like|procedure|function|os-command|silent|class|returns|valid-object|run|valid-handle|sax-writer|sax-reader|by-reference|web-context|namespace-uri|namespace-prefix|break|copy-lob|by|xml-node-name|xml-node-type|create|current|transaction|forward|case|when|otherwise)(?!-)\\b",
 		"name": "keyword.other.abl"
 	}, {
 		"match": "(?i)(\\b[a-z][a-z0-9_-]*?\\b\\s*)(?=\\s*\\(.*?\\))",
