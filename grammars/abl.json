@@ -34,7 +34,7 @@
 				"name": "storage.type.source.abl"
 			}
 		},
-		"match": "(?i)\\b(function)\\s+([a-z0-9_-]+)\\s+(returns|return) (void|event|blob|table|dataset|character|char|clob|com-handle|table-handle|widget-handle|handle|date|datetime|datetime-tz|decimal|dec|int64|integer|int|logical|log|longchar|long|file|memptr|raw|recid|rowid)\\b",
+		"match": "(?i)\\b(function)\\s+([a-z0-9_-]+)\\s+(returns|return) (void|event|blob|table|dataset|character|char|clob|com-handle|table-handle|widget-handle|handle|datetime-tz|datetime|date|decimal|dec|int64|integer|int|logical|log|longchar|long|file|memptr|raw|recid|rowid)\\b",
 		"name": "meta.function.abl"
 	}, {
 		"match": "(?i)\\b(end\\s+(function|procedure|method|class|constructor|destructor))\\b",
@@ -44,7 +44,7 @@
 		"match": "(?<!\\w)((0(x|X)[0-9a-fA-F]+)|(\\?)|([0-9]+(\\.[0-9]+)?))"
 	}, {
 		"name": "storage.type.abl",
-		"match": "(?i)(\\s+|\\b)(void|temp-table|socket|table|dataset|event|blob|character|char|clob|com-handle|dataset-handle|table-handle|widget-handle|handle|date|datetime|datetime-tz|decimal|dec|int64|integer|int|logical|log|longchar|long|file|memptr|raw|recid|rowid)((\\s*\\()|(\\s+))\\b"
+		"match": "(?i)(\\s+|\\b)(void|temp-table|socket|table|dataset|event|blob|character|char|clob|com-handle|dataset-handle|table-handle|widget-handle|handle|datetime-tz|datetime|date|decimal|dec|int64|integer|int|logical|log|longchar|long|file|memptr|raw|recid|rowid)((\\s*\\()|(\\s+))\\b"
 	}, {
 		"captures": {
 			"2": {
@@ -57,7 +57,7 @@
 				"name": "entity.name.type.instance.abl"
 			}
 		},
-		"match": "(?i)(\\s+|\\b)(as)\\s+((table|temp-table|buffer|char|character|com-handle|dataset-handle|handle|dataset|logical|file|memptr|datetime|date|longchar|long|log|rowid|integer|void|event|int|int64|decimal|dec|stream|frame|blob|cblob|class)|([a-zA-Z_$.]+))(?!\\s*\\()\\b"
+		"match": "(?i)(\\s+|\\b)(as)\\s+((table|temp-table|buffer|char|character|com-handle|dataset-handle|handle|dataset|logical|file|memptr|datetime-tz|datetime|date|longchar|long|log|rowid|integer|void|event|int|int64|decimal|dec|stream|frame|blob|cblob|class)|([a-zA-Z_$.]+))(?!\\s*\\()\\b"
 	}, {
 		"match": "(?i)\\s+(\\-|\\+|\\*|\\/|and|begins|eq|\\=|ge|\\>\\=|gt|\\>|le|\\<\\=|lt|<|matches|modulo|mod|ne|\\<\\>|not|or)\\s+",
 		"name": "keyword.operator.source.abl"
