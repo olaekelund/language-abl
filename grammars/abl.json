@@ -59,7 +59,7 @@
 		},
 		"match": "(?i)(\\s+|\\b)(as)\\s+((table|temp-table|buffer|char|character|com-handle|dataset-handle|handle|dataset|logical|file|memptr|datetime-tz|datetime|date|longchar|long|log|rowid|integer|void|event|int|int64|decimal|dec|stream|frame|blob|cblob|class)|([a-zA-Z_$.]+))(?!\\s*\\()\\b"
 	}, {
-		"match": "(?i)\\s+(\\-|\\+|\\*|\\/|and|begins|eq|\\=|ge|\\>\\=|gt|\\>|le|\\<\\=|lt|<|matches|modulo|mod|ne|\\<\\>|not|or)\\s+",
+		"match": "(?i)(\\s+|\\b)(\\-|\\+|\\*|\\/|and|begins|eq|\\=|ge|\\>\\=|gt|\\>|le|\\<\\=|lt|<|matches|modulo|mod|ne|\\<\\>|not|or)(\\s+|\\b)",
 		"name": "keyword.operator.source.abl"
 	}, {
 		"captures": {
