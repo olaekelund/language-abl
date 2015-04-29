@@ -139,7 +139,7 @@
 				"name": "variable.name.abl"
 			}
 		},
-		"match": "(?i)\\b(run)\\s+([\\a-z0-9._/-]+\\.p)"
+		"match": "(?i)\\b(run)\\s+([\\._/-a-z0-9]+\\.p)\\b"
 	}, {
 		"match": "(?i)(\\&)(s+)\\b",
 		"name": "keyword.operator.abl"
