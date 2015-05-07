@@ -7,7 +7,7 @@
 		"cls"
 	],
 	"patterns": [{
-		"match": "(?i)(\\b(define|def|method|constructor|destructor)\\s+((input|buffer|override|output|dataset|return|input-output|temp-table|dataset|protected|abstract|stream|var|variable|param|parameter|public|private)\\s+)+\\b)",
+		"match": "(?i)(\\b(define|def|method|constructor|destructor)\\s+((input|new|global||shared|buffer|override|output|dataset|return|input-output|temp-table|dataset|protected|abstract|stream|var|variable|param|parameter|public|private)\\s+)+\\b)",
 		"name": "storage.type.abl"
 	}, {
 		"captures": {
@@ -44,7 +44,7 @@
 		"match": "(?<!\\w)((0(x|X)[0-9a-fA-F]+)|(\\?)|([0-9]+(\\.[0-9]+)?))"
 	}, {
 		"name": "storage.type.abl",
-		"match": "(?i)(\\s+|\\b)(void|temp-table|buffer|socket|table|dataset|event|blob|character|char|clob|com-handle|dataset-handle|table-handle|widget-handle|handle|datetime-tz|datetime|date|decimal|dec|int64|integer|int|logical|log|longchar|long|file|memptr|raw|recid|rowid)((\\s*\\()|(\\s+))\\b"
+		"match": "(?i)(?<![a-zA-Z0-9_-])(void|temp-table|buffer|socket|table|dataset|event|blob|character|char|clob|com-handle|dataset-handle|table-handle|widget-handle|handle|datetime-tz|datetime|date|decimal|dec|int64|integer|int|logical|log|longchar|long|file|memptr|raw|recid|rowid)((\\s*\\()|(\\s+))(?!-)\\b"
 	}, {
 		"captures": {
 			"2": {
@@ -112,10 +112,17 @@
 	}, {
 		"captures": {
 			"2": {
+				"name": "constant.name.abl"
+			}
+		},
+		"match": "(?i)(\\{)(&[a-zA-Z0-9_-]+)(\\})"
+	}, {
+		"captures": {
+			"2": {
 				"name": "variable.name.abl"
 			}
 		},
-		"match": "(?i)(\\{)([\\a-z0-9_&./-]+)(\\})"
+		"match": "(?i)(\\{)([\\a-z0-9_./-]+)(\\})"
 	}, {
 		"captures": {
 			"1": {
@@ -144,11 +151,27 @@
 		},
 		"match": "(?i)\\b(run)\\s+([\\._/-a-z0-9]+\\.p)\\b"
 	}, {
-		"match": "(?i)(\\&)(s+)\\b",
-		"name": "keyword.operator.abl"
+		"captures": {
+			"1": {
+				"name": "keyword.control.prepocessor.abl"
+			},
+			"2": {
+				"name": "constant.name.abl"
+			}
+		},
+		"match": "(?i)(?<![a-zA-Z0-9_-])(&global-define)\\s+([a-z0-9_-]+)(?!-)\\b"
 	}, {
-		"match": "(?i)(?<![a-zA-Z0-9_-])(release|except|abstract|compile|compiler|save|alert-box|all|anywhere|assign|at|binary|buffer-copy|buffer-create|buffer-value|buttons|close|column|convert|create|current-window|data-relation|relation-fields|delete|display|do|else|empty|enable|end|endif|error-status|pause|no-message|field|find|first|last|avail|available|where|while|for|each|file-info|focus|for|foreign-key-hidden|from|full-pathname|generate-uuid|global-define|defined|handle|if|implements|in|index|info|information|inherits|input|input|input-output|labels|leave|skip|message|nested|next|throw|next-value|no-apply|node-value|num-fields|object|of|ok|on|os-copy|os-delete|os-error|stop|stop-after|pathname|private|request_method|control|protected|public|query|radio-buttons|radio-set|radio-set|repeat|return-value|return|row|serialize-name|set-size|set|error|case-sensitive|signature|soap-header-entryref|soap-header|source|codepage|stream|target|get-value|then|title|to|unique|view-as|wait-for|window-close|with|x-document|x-noderef|import|unformatted|seek|put|extent|append|ascending|no-echo|asc|descending|server|desc|init|no-undo|undo|is|method|destructor|constructor|no-box|no-labels|no-lock|exclusive-lock|no-error|format|output-http-header|output-content-type|output|num-entries|guid|colon|no-convert|label|initial|side-labels|width|primary|use-index|override|catch|case|printer|get-byte|value|abs|string|like|procedure|function|os-command|silent|class|returns|valid-object|run|valid-handle|sax-writer|sax-reader|by-reference|external|web-context|namespace-uri|namespace-prefix|break|copy-lob|by|xml-node-name|xml-node-type|create|current|transaction|forward|case|when|otherwise|persistent|scoped-define|space)(?!-)\\b",
+		"match": "(?i)(?<![a-zA-Z0-9_-])(&if|&then|&elseif|&else|&endif|&scoped-define|&undefine)(?!-)\\b",
+		"name": "keyword.control.prepocessor.abl"
+	}, {
+		"match": "(?i)(?<![a-zA-Z0-9_-])(release|except|abstract|compile|compiler|save|alert-box|all|anywhere|assign|at|binary|buffer-copy|buffer-create|buffer-value|buttons|close|column|convert|create|current-window|data-relation|relation-fields|delete|display|do|else|empty|enable|end|endif|error-status|pause|no-message|field|find|first|last|avail|available|where|while|for|each|file-info|focus|for|foreign-key-hidden|from|full-pathname|generate-uuid|defined|handle|if|implements|in|index|info|information|inherits|input|input|input-output|labels|leave|skip|message|nested|next|throw|next-value|no-apply|node-value|num-fields|object|of|ok|on|os-copy|os-delete|os-error|stop|stop-after|pathname|private|control|protected|public|query|radio-buttons|radio-set|radio-set|repeat|return-value|return|row|serialize-name|set-size|set|error|case-sensitive|signature|session|soap-header-entryref|soap-header|source|codepage|stream|target|get-value|then|title|to|unique|view-as|wait-for|window-close|with|x-document|x-noderef|import|unformatted|seek|put|extent|append|ascending|no-echo|asc|descending|server|desc|init|no-undo|undo|is|method|destructor|constructor|no-box|no-labels|no-lock|exclusive-lock|no-error|format|output-http-header|output|num-entries|guid|colon|no-convert|label|initial|side-labels|width|primary|use-index|override|catch|case|printer|get-byte|value|abs|string|like|procedure|function|os-command|silent|class|returns|valid-object|run|valid-handle|sax-writer|sax-reader|by-reference|external|web-context|namespace-uri|namespace-prefix|break|copy-lob|by|xml-node-name|xml-node-type|create|current|transaction|forward|case|when|otherwise|persistent|scoped-define|space|export)(?!-)\\b",
 		"name": "keyword.other.abl"
+	}, {
+		"match": "(?i)(?<![a-zA-Z0-9_-])(gateway_interface|server_software|server_protocol|server_name|server_port|request_method|script_name|path_info|path_translated|query_string|remote_addr|remote_host|remote_ident|remote_user|auth_type|content_type|content_length|http_accept|http_cookie|http_referer|http_user_agent|https|appprogram|appurl|selfurl|hosturl|cookiepath|rooturl|useconnid|cookiedomain|seldelim|http-newline|utc-offset|web-utilities-hdl|debug-options|debugging-enabled|MiscVarList)(?!-)\\b",
+		"name": "variable.name.global.shared.webspeed.abl"
+	}, {
+		"match": "(?i)(?<![a-zA-Z0-9_-])(output-content-type)(?!-)\\b",
+		"name": "keyword.other.webspeed.abl"
 	}, {
 		"match": "(?i)(\\b[a-z][a-z0-9_-]*?\\b\\s*)(?=\\s*\\(.*?\\))",
 		"name": "keyword.other.abl"
