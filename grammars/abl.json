@@ -1,179 +1,213 @@
 {
-	"scopeName": "source.abl",
-	"name": "OpenEdge ABL",
-	"fileTypes": [
-		"p",
-		"i",
-		"cls"
-	],
-	"patterns": [{
-		"match": "(?i)(\\b(define|def|method|constructor|destructor)\\s+((input|new|global||shared|buffer|override|output|dataset|return|input-output|temp-table|dataset|protected|abstract|stream|var|variable|param|parameter|public|private)\\s+)+\\b)",
-		"name": "storage.type.abl"
-	}, {
-		"captures": {
-			"1": {
-				"name": "storage.type.abl"
-			},
-			"2": {
-				"name": "variable.name.abl"
-			}
-		},
-		"match": "(?i)\\b(procedure)\\s+([a-z0-9_-]+)\\b"
-	}, {
-		"captures": {
-			"1": {
-				"name": "storage.type.abl"
-			},
-			"2": {
-				"name": "variable.name.abl"
-			},
-			"3": {
-				"name": "storage.type.abl"
-			},
-			"4": {
-				"name": "storage.type.source.abl"
-			}
-		},
-		"match": "(?i)\\b(function)\\s+([a-z0-9_-]+)\\s+(returns|return) (void|event|blob|table|buffer|dataset|character|char|clob|com-handle|table-handle|widget-handle|handle|datetime-tz|datetime|date|decimal|dec|int64|integer|int|logical|log|longchar|long|file|memptr|raw|recid|rowid)\\b",
-		"name": "meta.function.abl"
-	}, {
-		"match": "(?i)\\b(end\\s+(function|procedure|method|class|constructor|destructor))\\b",
-		"name": "storage.type.abl"
-	}, {
-		"name": "constant.numeric.abl",
-		"match": "(?<!\\w)((0(x|X)[0-9a-fA-F]+)|(\\?)|([0-9]+(\\.[0-9]+)?))"
-	}, {
-		"name": "storage.type.abl",
-		"match": "(?i)(?<![a-zA-Z0-9_-])(void|temp-table|buffer|socket|table|dataset|event|blob|character|char|clob|com-handle|dataset-handle|table-handle|widget-handle|handle|datetime-tz|datetime|date|decimal|dec|int64|integer|int|logical|log|longchar|long|file|memptr|raw|recid|rowid)((\\s*\\()|(\\s+))(?!-)\\b"
-	}, {
-		"captures": {
-			"2": {
-				"name": "keyword.other.abl"
-			},
-			"4": {
-				"name": "storage.type.abl"
-			},
-			"3": {
-				"name": "entity.name.type.instance.abl"
-			}
-		},
-		"match": "(?i)(\\s+|\\b)(as)\\s+((table|temp-table|buffer|char|character|com-handle|dataset-handle|handle|dataset|logical|file|memptr|datetime-tz|datetime|date|longchar|long|log|rowid|integer|void|event|int|int64|decimal|dec|stream|frame|blob|cblob|class)|([a-zA-Z_$.]+))(?!\\s*\\()\\b"
-	}, {
-		"match": "(?i)(\\s+|\\b)(and|not|or|begins|eq|ge|gt|le|lt|matches|modulo|mod|ne)(\\s+|\\b)",
-		"name": "keyword.operator.source.abl"
-	}, {
-		"match": "(\\s+)(>=|<=|<>|=|-|\\+|\\*|/|<|>)(\\s+)",
-		"name": "keyword.operator.source.abl"
-	}, {
-		"captures": {
-			"1": {
-				"name": "keyword.other.abl"
-			},
-			"2": {
-				"name": "entity.name.type.instance.abl"
-			}
-		},
-		"match": "(?i)\\b(new)\\s+([a-z0-9_.-]+)\\b"
-	}, {
-		"match": "(?i)\\b(\\?|true|false|yes|no(?!-))\\b",
-		"name": "constant.language.source.abl"
-	}, {
-		"match": "(?i)\\b(sax-write-idle|sax-write-begin|sax-write-tag|sax-write-element|sax-write-content|sax-write-complete|sax-write-error|big-endian|little-endian)\\b",
-		"name": "constant.language.source.abl"
-	}, {
-		"match": "(?i)(?<![a-zA-Z0-9_-])(this-object|super|time|now|today|etime|mtime)(?!-)\\b",
-		"name": "variable.language.abl"
-	}, {
-		"begin": "/\\*",
-		"name": "comment.block.source.abl",
-		"end": "\\*/(?![^/]*?\\*/)"
-	}, {
-		"match": "\"\"[a-zA-Z0-9_\\.\\-]+\"\"",
-		"name": "string.double.source.abl"
-	}, {
-		"begin": "(\"(?!\"[a-zA-Z]+)|\"\"[a-zA-Z]+)",
-		"patterns": [{
-			"match": "(~(x\\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]|37[0-7]?|[4-7][0-7]?|.)|\"\")",
-			"name": "constant.character.escape.abl"
-		}],
-		"name": "string.double.complex.abl",
-		"end": "\"(?!\")"
-	}, {
-		"match": "''[a-zA-Z0-9_\\.\\-]+''",
-		"name": "string.single.source.abl"
-	}, {
-		"begin": "('(?!'[a-zA-Z]+)|''[a-zA-Z]+)",
-		"patterns": [{
-			"match": "(~(x\\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]|37[0-7]?|[4-7][0-7]?|.)|'')",
-			"name": "constant.character.escape.abl"
-		}],
-		"name": "string.single.complex.abl",
-		"end": "'(?!')"
-	}, {
-		"captures": {
-			"2": {
-				"name": "constant.name.abl"
-			}
-		},
-		"match": "(?i)(\\{)(&[a-zA-Z0-9_-]+)(\\})"
-	}, {
-		"captures": {
-			"2": {
-				"name": "variable.name.abl"
-			}
-		},
-		"match": "(?i)(\\{)([\\a-z0-9_./-]+)(\\})"
-	}, {
-		"captures": {
-			"1": {
-				"name": "support.function.abl"
-			}
-		},
-		"match": "(?i):([a-z0-9_-]+)"
-	}, {
-		"captures": {
-			"1": {
-				"name": "storage.type.abl"
-			},
-			"2": {
-				"name": "variable.name.abl"
-			}
-		},
-		"match": "(?i)\\b(using|class)\\s+([a-z0-9._-]+)\\b"
-	}, {
-		"captures": {
-			"1": {
-				"name": "keyword.other.abl"
-			},
-			"2": {
-				"name": "variable.name.abl"
-			}
-		},
-		"match": "(?i)\\b(run)\\s+([\\._/-a-z0-9]+\\.p)\\b"
-	}, {
-		"captures": {
-			"1": {
-				"name": "keyword.control.prepocessor.abl"
-			},
-			"2": {
-				"name": "constant.name.abl"
-			}
-		},
-		"match": "(?i)(?<![a-zA-Z0-9_-])(&global-define)\\s+([a-z0-9_-]+)(?!-)\\b"
-	}, {
-		"match": "(?i)(?<![a-zA-Z0-9_-])(&if|&then|&elseif|&else|&endif|&scoped-define|&undefine)(?!-)\\b",
-		"name": "keyword.control.prepocessor.abl"
-	}, {
-		"match": "(?i)(?<![a-zA-Z0-9_-])(release|except|abstract|compile|compiler|save|alert-box|all|anywhere|assign|at|binary|buffer-copy|buffer-create|buffer-value|buttons|close|column|convert|create|current-window|data-relation|relation-fields|delete|display|do|else|empty|enable|end|endif|error-status|pause|no-message|field|find|first|last|avail|available|where|while|for|each|file-info|focus|for|foreign-key-hidden|from|full-pathname|generate-uuid|defined|handle|if|implements|in|index|info|information|inherits|input|input|input-output|labels|leave|skip|message|nested|next|throw|next-value|no-apply|node-value|num-fields|object|of|ok|on|os-copy|os-delete|os-error|stop|stop-after|pathname|private|control|protected|public|query|radio-buttons|radio-set|radio-set|repeat|return-value|return|row|serialize-name|set-size|set|error|case-sensitive|signature|session|soap-header-entryref|soap-header|source|codepage|stream|target|get-value|then|title|to|unique|view-as|wait-for|window-close|with|x-document|x-noderef|import|unformatted|seek|put|extent|append|ascending|no-echo|asc|descending|server|desc|init|no-undo|undo|is|method|destructor|constructor|no-box|no-labels|no-lock|exclusive-lock|no-error|format|output-http-header|output|num-entries|guid|colon|no-convert|label|initial|side-labels|width|primary|use-index|override|catch|case|printer|get-byte|value|abs|string|like|procedure|function|os-command|silent|class|returns|valid-object|run|valid-handle|sax-writer|sax-reader|by-reference|external|web-context|namespace-uri|namespace-prefix|break|copy-lob|by|xml-node-name|xml-node-type|create|current|transaction|forward|case|when|otherwise|persistent|scoped-define|space|export)(?!-)\\b",
-		"name": "keyword.other.abl"
-	}, {
-		"match": "(?i)(?<![a-zA-Z0-9_-])(gateway_interface|server_software|server_protocol|server_name|server_port|request_method|script_name|path_info|path_translated|query_string|remote_addr|remote_host|remote_ident|remote_user|auth_type|content_type|content_length|http_accept|http_cookie|http_referer|http_user_agent|https|appprogram|appurl|selfurl|hosturl|cookiepath|rooturl|useconnid|cookiedomain|seldelim|http-newline|utc-offset|web-utilities-hdl|debug-options|debugging-enabled|MiscVarList)(?!-)\\b",
-		"name": "variable.name.global.shared.webspeed.abl"
-	}, {
-		"match": "(?i)(?<![a-zA-Z0-9_-])(output-content-type)(?!-)\\b",
-		"name": "keyword.other.webspeed.abl"
-	}, {
-		"match": "(?i)(\\b[a-z][a-z0-9_-]*?\\b\\s*)(?=\\s*\\(.*?\\))",
-		"name": "keyword.other.abl"
-	}]
+    "scopeName": "source.abl",
+    "name": "OpenEdge ABL",
+    "fileTypes": [
+        "p",
+        "i",
+        "cls"
+    ],
+    "patterns": [
+        {
+            "match": "(?i)(\\b(define|def|method|constructor|destructor)\\s+((input|new|global||shared|buffer|override|output|dataset|return|input-output|temp-table|dataset|protected|abstract|stream|var|variable|param|parameter|public|private)\\s+)+\\b)",
+            "name": "storage.type.abl"
+        },
+        {
+            "captures": {
+                "1": {
+                    "name": "storage.type.abl"
+                },
+                "2": {
+                    "name": "variable.name.abl"
+                }
+            },
+            "match": "(?i)\\b(procedure)\\s+([a-z0-9_-]+)\\b"
+        },
+        {
+            "captures": {
+                "1": {
+                    "name": "storage.type.abl"
+                },
+                "2": {
+                    "name": "variable.name.abl"
+                },
+                "3": {
+                    "name": "storage.type.abl"
+                },
+                "4": {
+                    "name": "storage.type.source.abl"
+                }
+            },
+            "match": "(?i)\\b(function)\\s+([a-z0-9_-]+)\\s+(returns|return) (void|event|blob|table|buffer|dataset|character|char|clob|com-handle|table-handle|widget-handle|handle|datetime-tz|datetime|date|decimal|dec|int64|integer|int|logical|log|longchar|long|file|memptr|raw|recid|rowid)\\b",
+            "name": "meta.function.abl"
+        },
+        {
+            "match": "(?i)\\b(end\\s+(function|procedure|method|class|constructor|destructor))\\b",
+            "name": "storage.type.abl"
+        },
+        {
+            "name": "constant.numeric.abl",
+            "match": "(?<!\\w)((0(x|X)[0-9a-fA-F]+)|(\\?)|([0-9]+(\\.[0-9]+)?))"
+        },
+        {
+            "name": "storage.type.abl",
+            "match": "(?i)(?<![a-zA-Z0-9_-])(void|temp-table|buffer|socket|table|dataset|event|blob|character|char|clob|com-handle|dataset-handle|table-handle|widget-handle|handle|datetime-tz|datetime|date|decimal|dec|int64|integer|int|logical|log|longchar|long|file|memptr|raw|recid|rowid)((\\s*\\()|(\\s+))(?!-)\\b"
+        },
+        {
+            "captures": {
+                "2": {
+                    "name": "keyword.other.abl"
+                },
+                "4": {
+                    "name": "storage.type.abl"
+                },
+                "3": {
+                    "name": "entity.name.type.instance.abl"
+                }
+            },
+            "match": "(?i)(\\s+|\\b)(as)\\s+((table|temp-table|buffer|char|character|com-handle|dataset-handle|handle|dataset|logical|file|memptr|datetime-tz|datetime|date|longchar|long|log|rowid|integer|void|event|int|int64|decimal|dec|stream|frame|blob|cblob|class)|([a-zA-Z_$.]+))(?!\\s*\\()\\b"
+        },
+        {
+            "match": "(?i)(\\s+|\\b)(and|not|or|begins|eq|ge|gt|le|lt|matches|modulo|mod|ne)(\\s+|\\b)",
+            "name": "keyword.operator.source.abl"
+        },
+        {
+            "match": "(\\s+)(>=|<=|<>|=|-|\\+|\\*|/|<|>)(\\s+)",
+            "name": "keyword.operator.source.abl"
+        },
+        {
+            "captures": {
+                "1": {
+                    "name": "keyword.other.abl"
+                },
+                "2": {
+                    "name": "entity.name.type.instance.abl"
+                }
+            },
+            "match": "(?i)\\b(new)\\s+([a-z0-9_.-]+)\\b"
+        },
+        {
+            "match": "(?i)\\b(\\?|true|false|yes|no(?!-))\\b",
+            "name": "constant.language.source.abl"
+        },
+        {
+            "match": "(?i)\\b(sax-write-idle|sax-write-begin|sax-write-tag|sax-write-element|sax-write-content|sax-write-complete|sax-write-error|big-endian|little-endian)\\b",
+            "name": "constant.language.source.abl"
+        },
+        {
+            "match": "(?i)(?<![a-zA-Z0-9_-])(this-object|super|time|now|today|etime|mtime)(?!-)\\b",
+            "name": "variable.language.abl"
+        },
+        {
+            "begin": "/\\*",
+            "name": "comment.block.source.abl",
+            "end": "\\*/(?![^/]*?\\*/)"
+        },
+        {
+            "match": "\"\"[a-zA-Z0-9_\\.\\-]+\"\"",
+            "name": "string.double.source.abl"
+        },
+        {
+            "begin": "(\"(?!\"[a-zA-Z]+)|\"\"[a-zA-Z]+)",
+            "patterns": [
+                {
+                    "match": "(~(x\\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]|37[0-7]?|[4-7][0-7]?|.)|\"\")",
+                    "name": "constant.character.escape.abl"
+                }
+            ],
+            "name": "string.double.complex.abl",
+            "end": "\"(?!\")"
+        },
+        {
+            "match": "''[a-zA-Z0-9_\\.\\-]+''",
+            "name": "string.single.source.abl"
+        },
+        {
+            "begin": "('(?!'[a-zA-Z]+)|''[a-zA-Z]+)",
+            "patterns": [
+                {
+                    "match": "(~(x\\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]|37[0-7]?|[4-7][0-7]?|.)|'')",
+                    "name": "constant.character.escape.abl"
+                }
+            ],
+            "name": "string.single.complex.abl",
+            "end": "'(?!')"
+        },
+        {
+            "captures": {
+                "2": {
+                    "name": "constant.name.abl"
+                }
+            },
+            "match": "(?i)(\\{)(&[a-zA-Z0-9_-]+)(\\})"
+        },
+        {
+            "captures": {
+                "2": {
+                    "name": "variable.name.abl"
+                }
+            },
+            "match": "(?i)(\\{)([\\a-z0-9_./-]+)(\\})"
+        },
+        {
+            "captures": {
+                "1": {
+                    "name": "support.function.abl"
+                }
+            },
+            "match": "(?i):([a-z0-9_-]+)"
+        },
+        {
+            "captures": {
+                "1": {
+                    "name": "storage.type.abl"
+                },
+                "2": {
+                    "name": "variable.name.abl"
+                }
+            },
+            "match": "(?i)\\b(using|class)\\s+([a-z0-9._-]+)\\b"
+        },
+        {
+            "captures": {
+                "1": {
+                    "name": "keyword.other.abl"
+                },
+                "2": {
+                    "name": "variable.name.abl"
+                }
+            },
+            "match": "(?i)\\b(run)\\s+([\\._/-a-z0-9]+\\.p)\\b"
+        },
+        {
+            "captures": {
+                "1": {
+                    "name": "keyword.control.prepocessor.abl"
+                },
+                "2": {
+                    "name": "constant.name.abl"
+                }
+            },
+            "match": "(?i)(?<![a-zA-Z0-9_-])(&global-define)\\s+([a-z0-9_-]+)(?!-)\\b"
+        },
+        {
+            "match": "(?i)(?<![a-zA-Z0-9_-])(&ELSE|&ELSEIF|&ENDIF|GLOBAL-DEFINE|GLOB|GLOBA|GLOBAL|GLOBAL-|&GLOBAL-D|&GLOBAL-DE|&GLOBAL-DEF|&GLOBAL-DEFI|&GLOBAL-DEFIN|&IF|&MESSAGE|&SCOPED-DEFINE|&SCOP|&SCOPE|&SCOPED|&SCOPED-|&SCOPED-D|&SCOPED-DE|&SCOPED-DEF|&SCOPED-DEFI|&SCOPED-DEFIN|&THEN|&UNDEFINE|&UNDEF|&UNDEFI|&UNDEFIN|&WEBSTREAM|&BATCH-MODE|&BATCH|&BATCH-|&BATCH-M|&BATCH-MO|&BATCH-MOD|&FILE-NAME|&LINE-NUMBER|&LINE-NUMBE|&OPSYS|&SEQUENCE|&WINDOW-SYSTEM|&WINDOW-SYS|&WINDOW-SYST|&WINDOW-SYSTE)(?!-)\\b",
+            "name": "keyword.control.prepocessor.abl"
+        },
+        {
+            "match": "(?i)(?<![a-zA-Z0-9_-])(release|except|abstract|compile|compiler|save|alert-box|all|anywhere|assign|at|binary|buffer-copy|buffer-create|buffer-value|buttons|close|column|convert|create|current-window|data-relation|relation-fields|delete|display|do|else|empty|enable|end|endif|error-status|pause|no-message|field|find|first|last|avail|available|where|while|for|each|file-info|focus|for|foreign-key-hidden|from|full-pathname|generate-uuid|defined|handle|if|implements|in|index|info|information|inherits|input|input|input-output|labels|leave|skip|message|nested|next|throw|next-value|no-apply|node-value|num-fields|object|of|ok|on|os-copy|os-delete|os-error|stop|stop-after|pathname|private|control|protected|public|query|radio-buttons|radio-set|radio-set|repeat|return-value|return|row|serialize-name|set-size|set|error|case-sensitive|signature|session|soap-header-entryref|soap-header|source|codepage|stream|target|get-value|then|title|to|unique|view-as|wait-for|window-close|with|x-document|x-noderef|import|unformatted|seek|put|extent|append|ascending|no-echo|asc|descending|server|desc|init|no-undo|undo|is|method|destructor|constructor|no-box|no-labels|no-lock|exclusive-lock|no-error|format|output-http-header|output|num-entries|guid|colon|no-convert|label|initial|side-labels|width|primary|use-index|override|catch|case|printer|get-byte|value|abs|string|like|procedure|function|os-command|silent|class|returns|valid-object|run|valid-handle|sax-writer|sax-reader|by-reference|external|web-context|namespace-uri|namespace-prefix|break|copy-lob|by|xml-node-name|xml-node-type|create|current|transaction|forward|case|when|otherwise|persistent|scoped-define|space|export)(?!-)\\b",
+            "name": "keyword.other.abl"
+        },
+        {
+            "match": "(?i)(?<![a-zA-Z0-9_-])(gateway_interface|server_software|server_protocol|server_name|server_port|request_method|script_name|path_info|path_translated|query_string|remote_addr|remote_host|remote_ident|remote_user|auth_type|content_type|content_length|http_accept|http_cookie|http_referer|http_user_agent|https|appprogram|appurl|selfurl|hosturl|cookiepath|rooturl|useconnid|cookiedomain|seldelim|http-newline|utc-offset|web-utilities-hdl|debug-options|debugging-enabled|MiscVarList)(?!-)\\b",
+            "name": "variable.name.global.shared.webspeed.abl"
+        },
+        {
+            "match": "(?i)(?<![a-zA-Z0-9_-])(output-content-type)(?!-)\\b",
+            "name": "keyword.other.webspeed.abl"
+        },
+        {
+            "match": "(?i)(\\b[a-z][a-z0-9_-]*?\\b\\s*)(?=\\s*\\(.*?\\))",
+            "name": "keyword.other.abl"
+        }
+    ]
 }
