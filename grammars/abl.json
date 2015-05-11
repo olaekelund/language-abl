@@ -184,7 +184,7 @@
 		"match": "(?i)(?<![a-zA-Z0-9_-])(output-content-type)(?!-)\\b",
 		"name": "keyword.other.webspeed.abl"
 	}, {
-		"match": "(?i)(\\b[a-z][a-z0-9_-]*?\\b\\s*)(?=\\s*\\(.*?\\))",
+		"match": "(?i)(\\b[a-z][a-z0-9_-]*?\\b\\s*)(?=\\s*\\()\\b",
 		"name": "keyword.other.abl"
 	}]
 }
