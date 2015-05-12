@@ -115,7 +115,7 @@
 				"name": "keyword.name.preprocessor.abl"
 			}
 		},
-		"match": "(?i)(\\{)&(batch-mode|batch-m|batch-mo|batch-mod|batch-|batch|file-name|line-number|line-numbe|opsys|sequence|window-system|window-sys|window-syst|window-syste)(\\})"
+		"match": "(?i)(\\{)&(batch-mode|batch|file-name|line-number|opsys|sequence|window-system|window-sys)(\\})"
 	}, {
 		"captures": {
 			"2": {
@@ -166,14 +166,14 @@
 				"name": "constant.name.abl"
 			}
 		},
-		"match": "(?i)(?<![a-zA-Z0-9_-])&(global-define|glob|globa|global|global-|global-d|global-de|global-def|global-defi|global-defin)\\s+([a-z0-9_-]+)\\b"
+		"match": "(?i)(?<![a-zA-Z0-9_-])&(global-define|glob)\\s+([a-z0-9_-]+)\\b"
 	}, {
 		"captures": {
 			"1": {
 				"name": "keyword.control.prepocessor.abl"
 			}
 		},
-		"match": "(?i)(?<![a-zA-Z0-9_-])&(else|elseif|endif|if|message|scoped-define|scoped-d|scoped-de|scoped-def|scoped-defi|scoped-defin|scoped-|scoped|scope|scop|then|undefine|undef|undefi|undefin|webstream)(\\s+|\\n+)"
+		"match": "(?i)(?<![a-zA-Z0-9_-])&(else|elseif|endif|if|message|scoped-define|scop|then|undefine|undef|webstream|analyze-suspend|analyze-resume)(\\s+|\\n+)"
 	}, {
 		"match": "(?i)(?<![a-zA-Z0-9_-])(release|except|abstract|compile|compiler|save|alert-box|all|anywhere|assign|at|binary|buffer-copy|buffer-create|buffer-value|buttons|close|column|convert|create|current-window|data-relation|relation-fields|delete|display|do|else|empty|enable|end|endif|error-status|pause|no-message|field|find|first|last|avail|available|where|while|for|each|file-info|focus|for|foreign-key-hidden|from|full-pathname|generate-uuid|defined|handle|if|implements|in|index|info|information|inherits|input|input|input-output|labels|leave|skip|message|nested|next|throw|next-value|no-apply|node-value|num-fields|object|of|ok|on|os-copy|os-delete|os-error|stop|stop-after|pathname|private|control|protected|public|query|radio-buttons|radio-set|radio-set|repeat|return-value|return|row|serialize-name|set-size|set|error|case-sensitive|signature|session|soap-header-entryref|soap-header|source|codepage|stream|target|get-value|then|title|to|unique|view-as|wait-for|window-close|with|x-document|x-noderef|import|unformatted|seek|put|extent|append|ascending|no-echo|asc|descending|server|desc|init|no-undo|undo|is|method|destructor|constructor|no-box|no-labels|no-lock|exclusive-lock|no-error|format|output-http-header|output|num-entries|guid|colon|no-convert|label|initial|side-labels|width|primary|use-index|override|catch|case|printer|get-byte|value|abs|string|like|procedure|function|os-command|silent|class|returns|valid-object|run|valid-handle|sax-writer|sax-reader|by-reference|external|web-context|namespace-uri|namespace-prefix|break|copy-lob|by|xml-node-name|xml-node-type|create|current|transaction|forward|case|when|otherwise|persistent|space|export)(?!-)\\b",
 		"name": "keyword.other.abl"
