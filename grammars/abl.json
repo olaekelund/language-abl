@@ -7,7 +7,7 @@
 		"cls"
 	],
 	"patterns": [{
-		"match": "(?i)(\\b(define|def|method|constructor|destructor)\\s+((input|new|global||shared|buffer|override|output|dataset|return|input-output|temp-table|dataset|protected|abstract|stream|var|variable|param|parameter|public|private)\\s+)+\\b)",
+		"match": "(?i)(\\b(define|def|method|constructor|destructor)\\s+((input|new|global|shared|buffer|override|output|return|input-output|temp-table|dataset-handle|dataset|protected|abstract|stream|var|variable|param|parameter|public|private)\\s+)+\\b)",
 		"name": "storage.type.abl"
 	}, {
 		"captures": {
