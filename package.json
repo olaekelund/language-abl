@@ -1,5 +1,5 @@
 {
-  "version": "0.10.0",
+  "version": "0.10.1",
   "name": "language-abl",
   "description": "OpenEdge ABL (Advanced Business Language) for atom",
   "homepage": "https://github.com/tomasgreen/language-abl",
