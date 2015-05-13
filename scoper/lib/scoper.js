@@ -1,5 +1,4 @@
 module.exports.run = function (objects) {
-	var types = ['function', 'statement', 'system_reference', 'phrase'];
 	var scopes = {
 		'keyword.function': [],
 		'keyword.function.parenthases': [],
@@ -40,7 +39,7 @@ module.exports.run = function (objects) {
 				scopes['keyword.systemreference'].push(objects[i].abbreviation);
 			}
 		}
-		if (k['keyword.phrase']) {
+		if (k['phrase']) {
 			f = true;
 			scopes['keyword.phrase'].push(objects[i].keyword);
 			if (k.abbreviation !== null) {
