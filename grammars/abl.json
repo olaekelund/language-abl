@@ -166,14 +166,14 @@
 				"name": "constant.name.abl"
 			}
 		},
-		"match": "(?i)(?<![a-zA-Z0-9_-])&(global-define|glob)\\s+([a-z0-9_-]+)\\b"
+		"match": "(?i)(?<![a-zA-Z0-9_-])&(global-define|glob|globa|global|global-|global-d|global-de|global-def|global-defi|global-defin)\\s+([a-z0-9_-]+)\\b"
 	}, {
 		"captures": {
 			"1": {
 				"name": "keyword.control.prepocessor.abl"
 			}
 		},
-		"match": "(?i)(?<![a-zA-Z0-9_-])&(else|elseif|endif|if|message|scoped-define|scop|then|undefine|undef|webstream|analyze-suspend|analyze-resume)(\\s+|\\n+)"
+		"match": "(?i)(?<![a-zA-Z0-9_-])&(else|elseif|endif|if|message|scoped-define|scoped-d|scoped-de|scoped-def|scoped-defi|scoped-defin|scoped-|scoped|scope|scop|then|undefine|undef|undefi|undefin|webstream)(\\s+|\\n+)"
 	}, {
 		"match": "(?i)(?<![a-zA-Z0-9_-])(gateway_interface|server_software|server_protocol|server_name|server_port|request_method|script_name|path_info|path_translated|query_string|remote_addr|remote_host|remote_ident|remote_user|auth_type|content_type|content_length|http_accept|http_cookie|http_referer|http_user_agent|https|appprogram|appurl|selfurl|hosturl|cookiepath|rooturl|useconnid|cookiedomain|seldelim|http-newline|utc-offset|web-utilities-hdl|debug-options|debugging-enabled|miscvarlist)(?!-)\\b",
 		"name": "variable.name.global.shared.webspeed.abl"
