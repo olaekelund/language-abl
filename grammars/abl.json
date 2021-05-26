@@ -88,6 +88,10 @@
 		"name": "comment.block.source.abl",
 		"end": "\\*/(?![^/]*?\\*/)"
 	}, {
+		"begin": "//",
+		"name": "comment.line.source.abl",
+		"end": "(?=\\n)"
+	}, {
 		"match": "\"\"[a-zA-Z0-9_\\.\\-]+\"\"",
 		"name": "string.double.source.abl"
 	}, {
